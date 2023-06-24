@@ -15,14 +15,14 @@ export default function StartLottery({
     registrationAmount: "0",
     adminFee: "0",
     tokenAddress: "0x0",
-    tokenDecimals: "0",
+    tokenDecimals: "18",
   })
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLotteryRules({ ...lotteryRules, [e.target.name]: e.target.value })
   }
   return (
-    <div className="flex flex-col justify-center min-w-max">
+    <div className="flex flex-col justify-center min-w-max p-4">
       <h1 className="text-center text-2xl m-2 p-2">Start Lottery</h1>
 
       <div className="flex flex-col justify-center">
@@ -57,7 +57,7 @@ export default function StartLottery({
           className="rounded m-2 p-2"
         />
         <label htmlFor="adminFee" className="m-2 p-2">
-          Admin Fee Percentage:
+          Admin Fee Percentage (only integers eg 1,11, etc):
         </label>
         <input
           type="text"

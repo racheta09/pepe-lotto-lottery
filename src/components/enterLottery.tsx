@@ -1,4 +1,5 @@
 import { useContractRead, useContract, Web3Button } from "@thirdweb-dev/react"
+import { formatUnits } from "ethers/lib/utils"
 
 interface EnterLotteryProps {
   ercContractAddress: string
@@ -249,6 +250,7 @@ export default function EnterLottery({
 }: EnterLotteryProps) {
   const { data: ercContract } = useContract(ercContractAddress)
   const { data: ticker } = useContractRead(ercContract, "symbol")
+  const { data: decimals } = useContractRead(ercContract, "decimals")
   const { data: lotContract } = useContract(lotContractAddress)
   const { data: lotteryPool } = useContractRead(lotContract, "totalLotteryPool")
   const participants = []
@@ -326,7 +328,7 @@ export default function EnterLottery({
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
                 >
-                  {parseInt(registrationAmount) * 1e-18} {ticker}
+                  {formatUnits(registrationAmount, decimals)} {ticker}
                 </th>
               </tr>
             </tbody>
@@ -340,8 +342,7 @@ export default function EnterLottery({
             contract.call("approve", [lotContractAddress, registrationAmount])
           }
         >
-          Approve{" "}
-          {`${(parseInt(registrationAmount) * 10 ** -18).toFixed(2)} ${ticker}`}
+          Approve {`${formatUnits(registrationAmount, decimals)} ${ticker}`}
         </Web3Button>
         <h2 className="text-center text-xl m-2 p-2">Buy Ticket</h2>
         <Web3Button

@@ -4,7 +4,7 @@ import Main from "./main"
 import Image from "next/image"
 
 export default function Home() {
-  const activeChainId = ChainId.BinanceSmartChainTestnet
+  const activeChainId = ChainId.BinanceSmartChainMainnet
 
   const scrollDown = () => {
     window.scrollTo({
@@ -31,9 +31,8 @@ export default function Home() {
             <Image src="/hero.png" width={500} height={500} alt="hero" />
             <div>
               <h1 className="text-5xl font-bold">
-                Welcome to the Lottery dapp
+                Welcome to the Lottery
               </h1>
-              <p className="py-6">Play and Earn Pepe Lotto tokens</p>
               <button className="btn btn-primary" onClick={scrollDown}>
                 Get Started
               </button>
