@@ -267,8 +267,8 @@ export default function EnterLottery({
     <div className="flex flex-col items-center justify-center">
       <div className="flex flex-col items-center">
         <div className="relative overflow-x-hidden shadow-md sm:rounded-lg">
-          <table className="w-screen text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-screen text-sm text-left text-gray-500 max-w-md">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="px-6 py-3 text-center" colSpan={2}>
                   Lottery Details
@@ -276,57 +276,57 @@ export default function EnterLottery({
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-green-800 text-white border-b hover:bg-green-500">
                 <td className="px-6 py-4">Winners</td>
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
+                  className="px-6 py-4 font-medium text-white whitespace-nowrap text-center"
                 >
                   {parseInt(numOfWinners)}
                 </th>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-green-800 text-white border-b hover:bg-green-500">
                 <td className="px-6 py-4">Tickets Sold</td>
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
+                  className="px-6 py-4 font-medium text-white whitespace-nowrap text-center"
                 >
                   {parseInt(lotteryPool) / parseInt(registrationAmount)}
                 </th>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-green-800 text-white border-b hover:bg-green-500">
                 <td className="px-6 py-4">Tickets Remaining</td>
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
+                  className="px-6 py-4 font-medium text-white whitespace-nowrap text-center"
                 >
                   {parseInt(playersLimit) -
                     parseInt(lotteryPool) / parseInt(registrationAmount)}
                 </th>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-green-800 text-white border-b hover:bg-green-500">
                 <td className="px-6 py-4">Total Tickets</td>
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
+                  className="px-6 py-4 font-medium text-white whitespace-nowrap text-center"
                 >
                   {parseInt(playersLimit)}
                 </th>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-green-800 text-white border-b hover:bg-green-500">
                 <td className="px-6 py-4">Lottery Token</td>
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
+                  className="px-6 py-4 font-medium text-white whitespace-nowrap text-center"
                 >
                   {ticker}
                 </th>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-green-800 text-white border-b hover:bg-green-500">
                 <td className="px-6 py-4">Ticket Cost</td>
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
+                  className="px-6 py-4 font-medium text-white whitespace-nowrap text-center"
                 >
                   {formatUnits(registrationAmount, decimals)} {ticker}
                 </th>
@@ -354,8 +354,8 @@ export default function EnterLottery({
       </div>
       <div className="m-2 p-2">
         <div className="relative shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500 max-w-md">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="px-6 py-3 text-center">
                   Participants Addresses
@@ -365,7 +365,7 @@ export default function EnterLottery({
             <tbody>
               {participants.map((participant: any, index: any) => (
                 <tr
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                  className="bg-green-800 text-white border-b hover:bg-green-500"
                   key={index}
                 >
                   {participant}
@@ -388,7 +388,7 @@ function GetParticipant({ i, lotContractAddress }: GetParticipantProps) {
   return (
     <th
       scope="row"
-      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
+      className="px-6 py-4 font-medium text-white whitespace-nowrap text-center"
     >
       {participant && participant.toString()}
     </th>
