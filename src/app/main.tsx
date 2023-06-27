@@ -17,7 +17,7 @@ export default function Main() {
         <h3 className="text-3xl text-center m-4 p-4">
           Lottery Not Started Yet
         </h3>
-      ) : lotStatus == "0" ? (
+      ) : lotStatus == "1" ? (
         <EnterLottery
           ercContractAddress={lotData?.lotteryTokenAddress}
           lotContractAddress={lotContractAddress}
@@ -25,7 +25,7 @@ export default function Main() {
           numOfWinners={lotData?.numOfWinners}
           playersLimit={lotData?.playersLimit}
         />
-      ) : lotStatus == "0" ? (
+      ) : lotStatus == "2" ? (
         <ClaimReward
           lotContractAddress={lotContractAddress}
           numOfWinners={parseInt(lotData?.numOfWinners)}
